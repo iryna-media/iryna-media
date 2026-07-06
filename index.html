@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iryna — Model für Foto- &amp; Videoproduktionen</title>
+<meta name="description" content="Iryna — professionelles Model für Werbefotografie und Videoproduktionen. Verfügbar für Kampagnen, Social Media, Beauty und Corporate-Projekte.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15151a;
+    --paper:#ffffff;
+    --paper-soft:#eceae5;
+    --bronze:#a9812e;
+    --grey:#6f6f6a;
+    --line: rgba(21,21,26,0.14);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight:400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  a{ color:inherit; }
+
+  .eyebrow{
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color: var(--bronze);
+    font-weight:600;
+  }
+
+  /* ---------- spine ---------- */
+  .spine{
+    position:fixed;
+    left:0; top:0; bottom:0;
+    width:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-right:1px solid var(--line);
+    z-index:50;
+    background:var(--paper);
+    mix-blend-mode:normal;
+  }
+  .spine span{
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family:'Fraunces', serif;
+    font-size:1.05rem;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+  }
+
+  main{ margin-left:52px; }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 22px 40px;
+    background: rgba(255,255,255,0.86);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--line);
+    z-index:40;
+  }
+  header .logo{ font-family:'Fraunces', serif; font-size:1.15rem; letter-spacing:0.02em; }
+  header nav a{
+    text-decoration:none;
+    font-size:0.85rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    border-bottom:1px solid var(--ink);
+    padding-bottom:2px;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    display:grid;
+    grid-template-columns: 1.05fr 1fr;
+    min-height: calc(100vh - 73px);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-copy{
+    display:flex; flex-direction:column; justify-content:center;
+    padding: 60px 64px;
+    gap:26px;
+  }
+  .hero-copy h1{
+    font-size: clamp(2.6rem, 5vw, 4.4rem);
+    line-height:1.02;
+  }
+  .hero-copy .lede{
+    max-width: 34ch;
+    font-size:1.08rem;
+    color: var(--grey);
+    line-height:1.6;
+  }
+  .hero-meta{
+    display:flex; gap:36px; margin-top:12px;
+    font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--grey);
+  }
+  .hero-meta div span{ display:block; color:var(--ink); font-family:'Fraunces', serif; font-size:0.95rem; text-transform:none; letter-spacing:0; margin-top:4px; }
+
+  .hero-photo{
+    position:relative;
+    overflow:hidden;
+    border-left:1px solid var(--line);
+  }
+  .hero-photo img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  /* ---------- about ---------- */
+  section{ padding: 96px 64px; border-bottom:1px solid var(--line); }
+  .about{ display:grid; grid-template-columns: 0.6fr 1fr; gap:60px; }
+  .about h2{ font-size:2.1rem; margin-top:14px; }
+  .about p{
+    font-size:1.05rem; line-height:1.75; color:#2b2b2b; max-width:62ch; margin-top:22px;
+  }
+
+  /* ---------- services ---------- */
+  .section-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:48px; flex-wrap:wrap; gap:14px;}
+  .section-head h2{ font-size:2.1rem; margin-top:14px; }
+
+  .grid-6{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--line);
+  }
+  .tile{
+    background:var(--paper);
+    position:relative;
+    aspect-ratio: 4/5;
+    overflow:hidden;
+  }
+  .tile img{ width:100%; height:100%; object-fit:cover; display:block; transition: transform .6s ease; }
+  .tile:hover img{ transform: scale(1.04); }
+  .tile .cap{
+    position:absolute; left:0; right:0; bottom:0;
+    padding:14px 16px;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 100%);
+    color:#fff;
+    font-size:0.85rem;
+    letter-spacing:0.04em;
+  }
+
+  /* ---------- contact ---------- */
+  .contact{ border-bottom:none; }
+  .contact-inner{ display:grid; grid-template-columns: 1fr 1fr; gap:60px; align-items:end; }
+  .contact h2{ font-size: clamp(2.2rem, 4vw, 3.2rem); max-width: 16ch; margin-top:14px;}
+  .contact-list{ display:flex; flex-direction:column; gap:18px; }
+  .contact-list a{
+    text-decoration:none;
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+    border-bottom:1px solid transparent;
+  }
+  .contact-list a:hover{ border-color: var(--ink); }
+  .contact-list .label{
+    display:block; font-family:'Inter',sans-serif; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--grey); margin-bottom:4px;
+  }
+
+  footer{
+    padding: 26px 64px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-size:0.78rem; color:var(--grey);
+  }
+
+  @media (max-width: 880px){
+    .spine{ display:none; }
+    main{ margin-left:0; }
+    header{ padding:18px 22px; }
+    .hero{ grid-template-columns:1fr; }
+    .hero-photo{ order:-1; height:56vh; border-left:none; border-bottom:1px solid var(--line); }
+    .hero-copy{ padding:40px 24px; }
+    .hero-meta{ flex-wrap:wrap; gap:22px; }
+    section{ padding: 64px 24px; }
+    .about{ grid-template-columns:1fr; gap:20px; }
+    .grid-6{ grid-template-columns: repeat(2, 1fr); }
+    .contact-inner{ grid-template-columns:1fr; gap:36px; }
+    footer{ padding: 20px 24px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="spine"><span>Iryna Media</span></div>
+
+  <main>
+    <header>
+      <div class="logo">IRYNA</div>
+      <nav><a href="#kontakt">Kontakt</a></nav>
+    </header>
+
+    <section class="hero" style="padding:0; border-bottom:1px solid var(--line);">
+      <div class="hero-copy">
+        <div class="eyebrow">Model · Foto &amp; Video</div>
+        <h1>Das Gesicht<br>Ihrer Kampagne.</h1>
+        <p class="lede">Model für Foto- und Videoproduktionen in der Werbung — für Unternehmen, die Bilder mit echtem Ausdruck suchen.</p>
+        <div class="hero-meta">
+          <div>Verfügbar für<span>Kampagnen &amp; Content</span></div>
+          <div>Einsatzgebiet<span>DACH-Raum</span></div>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="images/hero.jpg" alt="Porträtfoto von Iryna">
+      </div>
+    </section>
+
+    <section class="about" id="ueber-mich">
+      <div>
+        <div class="eyebrow">Porträt</div>
+        <h2>Über mich</h2>
+      </div>
+      <p>
+        Ich bin Iryna — Model für Foto- und Videoproduktionen im Werbebereich. Ich arbeite mit Unternehmen
+        unterschiedlichster Branchen zusammen und bringe Marken vor der Kamera zum Leben: ausdrucksstark,
+        professionell und flexibel einsetzbar — für Print, Social Media, Kampagnen und Bewegtbild.
+        Jedes Projekt behandle ich mit derselben Sorgfalt: zuverlässig, pünktlich und mit einem Gespür
+        dafür, was ein Bild wirklich braucht, um zu wirken.
+      </p>
+    </section>
+
+    <section id="portfolio">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Leistungen</div>
+          <h2>Einsatzbereiche</h2>
+        </div>
+      </div>
+      <div class="grid-6">
+        <div class="tile"><img src="images/portfolio-1.jpg" alt="Werbefotografie"><div class="cap">Werbefotografie</div></div>
+        <div class="tile"><img src="images/portfolio-2.jpg" alt="Videoproduktion"><div class="cap">Videoproduktion</div></div>
+        <div class="tile"><img src="images/portfolio-3.jpg" alt="Social Media"><div class="cap">Social-Media-Content</div></div>
+        <div class="tile"><img src="images/portfolio-4.jpg" alt="Kampagnen"><div class="cap">Kampagnen</div></div>
+        <div class="tile"><img src="images/portfolio-5.jpg" alt="Beauty & Lifestyle"><div class="cap">Beauty &amp; Lifestyle</div></div>
+        <div class="tile"><img src="images/portfolio-6.jpg" alt="Corporate"><div class="cap">Corporate &amp; Business</div></div>
+      </div>
+    </section>
+
+    <section class="contact" id="kontakt">
+      <div class="contact-inner">
+        <div>
+          <div class="eyebrow">Kontakt</div>
+          <h2>Lassen Sie uns zusammenarbeiten.</h2>
+        </div>
+        <div class="contact-list">
+          <div>
+            <span class="label">E-Mail</span>
+            <a href="mailto:hallo@iryna-media.com">hallo@iryna-media.com</a>
+          </div>
+          <div>
+            <span class="label">WhatsApp</span>
+            <a href="https://wa.me/436769258348" target="_blank" rel="noopener">+43 676 925 8348</a>
+          </div>
+          <div>
+            <span class="label">Instagram</span>
+            <a href="https://instagram.com/gerchovskaya" target="_blank" rel="noopener">@gerchovskaya</a>
+          </div>
+          <div>
+            <span class="label">Standort</span>
+            <a href="#" style="cursor:default; border:none;">Vorarlberg, Österreich</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© 2026 Iryna Media</div>
+      <div>Model für Foto- &amp; Videoproduktionen</div>
+    </footer>
+  </main>
+
+</body>
+</html>
