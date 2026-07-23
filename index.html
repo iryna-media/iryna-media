@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Iryna — Model für Foto- &amp; Videoproduktionen</title>
 <meta name="description" content="Iryna — professionelles Model für Werbefotografie und Videoproduktionen. Verfügbar für Kampagnen, Social Media, Beauty und Corporate-Projekte.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#15151a;
@@ -16,6 +13,8 @@
     --bronze:#a9812e;
     --grey:#6f6f6a;
     --line: rgba(21,21,26,0.14);
+    --font-display: Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Times New Roman', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   }
 
   *{ box-sizing: border-box; }
@@ -25,13 +24,13 @@
     margin:0;
     background: var(--paper);
     color: var(--ink);
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body);
     font-weight:400;
     -webkit-font-smoothing: antialiased;
   }
 
   h1,h2,h3{
-    font-family:'Fraunces', serif;
+    font-family:var(--font-display);
     font-weight:500;
     margin:0;
     letter-spacing:-0.01em;
@@ -63,7 +62,7 @@
   .spine span{
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    font-family:'Fraunces', serif;
+    font-family:var(--font-display);
     font-size:1.05rem;
     letter-spacing:0.3em;
     text-transform:uppercase;
@@ -81,7 +80,7 @@
     border-bottom:1px solid var(--line);
     z-index:40;
   }
-  header .logo{ font-family:'Fraunces', serif; font-size:1.15rem; letter-spacing:0.02em; }
+  header .logo{ font-family:var(--font-display); font-size:1.15rem; letter-spacing:0.02em; }
   header nav a{
     text-decoration:none;
     font-size:0.85rem;
@@ -117,7 +116,7 @@
     display:flex; gap:36px; margin-top:12px;
     font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--grey);
   }
-  .hero-meta div span{ display:block; color:var(--ink); font-family:'Fraunces', serif; font-size:0.95rem; text-transform:none; letter-spacing:0; margin-top:4px; }
+  .hero-meta div span{ display:block; color:var(--ink); font-family:var(--font-display); font-size:0.95rem; text-transform:none; letter-spacing:0; margin-top:4px; }
 
   .hero-photo{
     position:relative;
@@ -173,13 +172,13 @@
   .contact-list{ display:flex; flex-direction:column; gap:18px; }
   .contact-list a{
     text-decoration:none;
-    font-family:'Fraunces', serif;
+    font-family:var(--font-display);
     font-size:1.3rem;
     border-bottom:1px solid transparent;
   }
   .contact-list a:hover{ border-color: var(--ink); }
   .contact-list .label{
-    display:block; font-family:'Inter',sans-serif; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--grey); margin-bottom:4px;
+    display:block; font-family:var(--font-body); font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--grey); margin-bottom:4px;
   }
 
   footer{
@@ -187,6 +186,9 @@
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
     font-size:0.78rem; color:var(--grey);
   }
+  .footer-links{ display:flex; gap:10px; align-items:center; }
+  .footer-links a{ color:var(--grey); text-decoration:none; }
+  .footer-links a:hover{ color:var(--ink); text-decoration:underline; }
 
   @media (max-width: 880px){
     .spine{ display:none; }
@@ -289,7 +291,11 @@
 
     <footer>
       <div>© 2026 Iryna Media</div>
-      <div>Model für Foto- &amp; Videoproduktionen</div>
+      <div class="footer-links">
+        <a href="impressum.html">Impressum</a>
+        <span>·</span>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
     </footer>
   </main>
 
